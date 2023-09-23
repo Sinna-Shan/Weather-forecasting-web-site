@@ -1,11 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale = 1.0"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@300&family=Poppins:wght@600&family=Quicksand&family=Tilt+Prism&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/8d6b0de9aa.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
     <title>Weather Forecaster</title>
-</head>
-<body>
+  </head>
+  <body class="body">
+    <div class="container">
+      <p class="time Light Dark"></p>
+      <p class="date Light Dark"></p>
+      <p class="greating Light Dark"></p>
+      <div class="search-bar Light Dark">
+        <input
+          type="text"
+          placeholder="Enter city here"
+          class="input-field Light Dark"
+          value="colombo"
+        />
+        <button class="search-btn">
+          <i class="fa-solid fa-magnifying-glass fa-2x Light Dark"></i>
+        </button>
+      </div>
+      <p class="errMsg Light Dark"></p>
+      <div class="toggle">
+        <i class="fa-solid fa-sun fa-2x"></i>
+        <i class="fa-solid fa-moon fa-2x active"></i>
+      </div>
+      <div class="map" id="map">
+      </div>
+
+      <div class="mid-info">
+        <!-- <i class="fa-solid fa-cloud fa-8x"></i> -->
+        <img src="#" alt="icon" class="mid-img" />
+        <p class="mid-weather-info basic Light Dark">Cloudy</p>
+        <p class="mid-weather-num basic Light Dark">25<sup>o</sup></p>
+        <div class="mesure-units">
+          <p class="mesure-unit basic Light Dark">C</p>
+          <p class="mesure-unit basic Light Dark">F</p>
+        </div>
+        <div class="speed-humid">
+          <div class="wind-speed">
+            <i class="fa-solid fa-wind fa-2x Light Dark"></i>
+            <p class="wind-speed-value basic Light Dark">6.1</p>
+            <div class="speed-units">
+              <p class="basic Light Dark">mph</p>
+              <p class="basic Light Dark">km/h</p>
+            </div>
+          </div>
+          <div class="humidity">
+            <i class="fa-solid fa-droplet fa-2x Light Dark"></i>
+            <p class="humidity-value basic Light Dark">80%</p>
+          </div>
+        </div>
+      </div>
+      <div class="crousel">
+        <!-- <div class="card">
+          <p class="day">Sunday</p>
+          <p class="temp">25</p>
+          <p class="unit">C <sup>o</sup></p>
+          <p class="card-date">2023-9-19</p>
+          <p class="status">Cloudy</p>
+        </div> -->
+      </div>
+      <h3 class="hour-heading Light Dark">Hourly Weather</h3>
+      <div class="hour Light Dark">
+        <p class="hour-details hour-date Light Dark">07 AM</p>
+        <p class="hour-details hour-temp Light Dark">25 <sup>o</sup>C</p>
+        <div class="hour-handels">
+          <i class="fa-solid arrow fa-arrow-up Light Dark"></i>
+          <i class="fa-solid arrow fa-arrow-down Light Dark"></i>
+        </div>
+      </div>
+    </div>
+
     <script src="./script.js"></script>
-</body>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1L2kgtpbmnNFFAc0NafEvSGUH9i40RlQ&libraries=places&callback=myMap"></script>
+  </body>
 </html>
