@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale = 1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,77 +13,89 @@
       src="https://kit.fontawesome.com/8d6b0de9aa.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="styles.css" />
-    <title>Weather Forecaster</title>
+    <link rel="stylesheet" href="test.css" />
+    <title>Document</title>
   </head>
   <body class="body">
-    <div class="container">
-      <p class="time Light Dark"></p>
-      <p class="date Light Dark"></p>
-      <p class="greating Light Dark"></p>
-      <div class="search-bar Light Dark">
-        <input
-          type="text"
-          placeholder="Enter city here"
-          class="input-field Light Dark"
-          value="colombo"
-        />
-        <button class="search-btn">
-          <i class="fa-solid fa-magnifying-glass fa-2x Light Dark"></i>
-        </button>
-      </div>
-      <p class="errMsg Light Dark"></p>
-      <div class="toggle">
-        <i class="fa-solid fa-sun fa-2x"></i>
-        <i class="fa-solid fa-moon fa-2x active"></i>
-      </div>
-      <div class="map" id="map">
-      </div>
-
-      <div class="mid-info">
-        <!-- <i class="fa-solid fa-cloud fa-8x"></i> -->
-        <img src="#" alt="icon" class="mid-img" />
-        <p class="mid-weather-info basic Light Dark">Cloudy</p>
-        <p class="mid-weather-num basic Light Dark">25<sup>o</sup></p>
-        <div class="mesure-units">
-          <p class="mesure-unit basic Light Dark">C</p>
-          <p class="mesure-unit basic Light Dark">F</p>
+    <div class="container border">
+      <div class="item border item-1">
+        <div class="date-time">
+          <p class="time Light Dark"></p>
+          <p class="date Light Dark"></p>
         </div>
-        <div class="speed-humid">
-          <div class="wind-speed">
-            <i class="fa-solid fa-wind fa-2x Light Dark"></i>
-            <p class="wind-speed-value basic Light Dark">6.1</p>
-            <div class="speed-units">
-              <p class="basic Light Dark">mph</p>
-              <p class="basic Light Dark">km/h</p>
+        <p class="greating Light Dark"></p>
+        <div class="search-bar Light Dark">
+          <input
+            type="text"
+            placeholder="Enter city here"
+            class="input-field Light Dark"
+            value="colombo"
+          />
+          <i class="fa-solid fa-magnifying-glass Light Dark search-btn"></i>
+        </div>
+        <p class="errMsg Light Dark"></p>
+        <div class="toggle">
+          <i class="fa-solid fa-sun fa-2x"></i>
+          <i class="fa-solid fa-moon fa-2x active"></i>
+        </div>
+      </div>
+      <div class="item border item-3">
+        <div class="border item-3-1">
+          <h3 class="hour-heading Light Dark">Location</h3>
+          <div class="map" id="map"></div>
+        </div>
+        <div class="border item-3-2">
+          <h3 class="hour-heading Light Dark">Current Weather</h3>
+          <div class="mid-info">
+            <div class="temp-container">
+              <div class="temp-container-items">
+                <img src="#" alt="icon" class="mid-img" />
+                <p class="mid-weather-info basic Light Dark"></p>
+                <p class="mid-weather-num basic Light Dark"></p>
+              </div>
+              <div class="mesure-units">
+                <p class="mesure-unit cel basic Light Dark active">C</p>
+                <p class="mesure-unit far basic Light Dark">F</p>
+              </div>
+            </div>
+            <div class="speed-humid">
+              <div class="wind-speed">
+                <i class="fa-solid fa-wind fa-2x Light Dark"></i>
+                <p class="wind-speed-value basic Light Dark"></p>
+                <div class="speed-units">
+                  <p class="basic mph Light Dark active">mph</p>
+                  <p class="basic kmh Light Dark">km/h</p>
+                </div>
+              </div>
+              <div class="humidity">
+                <i class="fa-solid fa-droplet fa-2x Light Dark"></i>
+                <p class="humidity-value basic Light Dark"></p>
+              </div>
             </div>
           </div>
-          <div class="humidity">
-            <i class="fa-solid fa-droplet fa-2x Light Dark"></i>
-            <p class="humidity-value basic Light Dark">80%</p>
-          </div>
+          <h3 class="hour-heading Light Dark">Future Weather</h3>
+          <div class="crousel"></div>
         </div>
-      </div>
-      <div class="crousel">
-        <!-- <div class="card">
-          <p class="day">Sunday</p>
-          <p class="temp">25</p>
-          <p class="unit">C <sup>o</sup></p>
-          <p class="card-date">2023-9-19</p>
-          <p class="status">Cloudy</p>
-        </div> -->
-      </div>
-      <h3 class="hour-heading Light Dark">Hourly Weather</h3>
-      <div class="hour Light Dark">
-        <p class="hour-details hour-date Light Dark">07 AM</p>
-        <p class="hour-details hour-temp Light Dark">25 <sup>o</sup>C</p>
-        <div class="hour-handels">
-          <i class="fa-solid arrow fa-arrow-up Light Dark"></i>
-          <i class="fa-solid arrow fa-arrow-down Light Dark"></i>
+        <div class="border item-3-3">
+          <h3 class="hour-heading Light Dark">Hourly Weather</h3>
+          <div class="hour Light Dark">
+            <p class="hour-details hour-date Light Dark">07 AM</p>
+            <p class="hour-details hour-temp Light Dark">25 <sup>o</sup>C</p>
+            <div class="hour-handels">
+              <i class="fa-solid arrow fa-arrow-up Light Dark"></i>
+              <i class="fa-solid arrow fa-arrow-down Light Dark"></i>
+            </div>
+          </div>
+          <h3 class="hour-heading Light Dark">Past Weather</h3>
+          <div class="past"></div>
         </div>
       </div>
     </div>
-
+    <footer>
+      <p class="footer-p">All rights recived</p>
+      <p class="footer-p copy">© Copy right</p>
+      <p class="footer-p">Created by Noah</p>
+    </footer>
     <script src="./script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1L2kgtpbmnNFFAc0NafEvSGUH9i40RlQ&libraries=places&callback=myMap"></script>
   </body>
