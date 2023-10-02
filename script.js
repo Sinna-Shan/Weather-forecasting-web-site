@@ -27,6 +27,12 @@ let obj;
 let selectedMood = 0;
 let count = getLocalTime().getHours();
 
+navigator.geolocation.getCurrentPosition(
+  function(position){
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+  });
+
 setInterval((e) => {
   time.innerHTML = getLocalTime().toLocaleTimeString();
 }, 1000);
@@ -98,7 +104,6 @@ function forcast(data) {
 }
 
 function addCards(data) {
-  // console.log(data);
   let card = document.createElement("div");
   let temp = document.createElement("p");
   let unit = document.createElement("p");
@@ -134,7 +139,7 @@ function addCards(data) {
 
 function getData() {
   fetch(
-    `https://api.weatherapi.com/v1/forecast.json?q=${inputField.value}&days=5&key=7f49e6df628745e38d4160010231909`
+    `https://api.weatherapi.com/v1/forecast.json?q=${inputField.value}&days=3&key=7f49e6df628745e38d4160010231909`
   )
     .then((res) => res.json())
     .then((data) => {
@@ -167,6 +172,7 @@ function getData() {
         forcast(data);
         hourlyWeather(data);
         myMap(data);
+        past.innerHTML="";
         pastWeather();
       }
     });
@@ -190,7 +196,6 @@ function hourlyWeather(data) {
   hourTime.innerHTML =
     parseInt(time[1]) < 12 ? time[1] + " AM" : time[1] + " PM";
   hourTemp.innerHTML = Math.round(temp) + " <sup>o</sup>C";
-  console.log(data.forecast.forecastday[0].hour[count].condition.icon);
 }
 
 function myMap(data) {
@@ -262,6 +267,7 @@ function pastCard(data, num) {
   let card = document.createElement("div");
   let cardImg = document.createElement("img");
   let cardDetailsDiv = document.createElement("div");
+  let cardName = document.createElement("p");
   let cardDate = document.createElement("p");
   let cardTemp = document.createElement("p");
   let cardStatus = document.createElement("p");
@@ -273,22 +279,27 @@ function pastCard(data, num) {
     data.forecast.forecastday[num].day.avgtemp_c + "<sup>o</sup>C";
   cardDate.innerHTML = data.forecast.forecastday[num].date;
   cardStatus.innerHTML = data.forecast.forecastday[num].day.condition.text;
+  cardName.innerHTML = data.location.name;
   card.classList.add("past-card");
   if ((selectedMood == 0)) {
     cardTemp.setAttribute("class", "pastCardText-temp Light");
     cardDate.setAttribute("class", "pastCardText-date Light");
     cardStatus.setAttribute("class", "pastCardText-statuse Light");
+    cardName.setAttribute("class", "pastCardText-statuse Light");
   } else {
     cardTemp.setAttribute("class", "pastCardText-temp Dark");
     cardDate.setAttribute("class", "pastCardText-date Dark");
     cardStatus.setAttribute("class", "pastCardText-statuse Dark");
+    cardName.setAttribute("class", "pastCardText-statuse Dark");
   }
-  past.appendChild(card);
+    past.appendChild(card);
   card.appendChild(cardImg);
   card.appendChild(cardDetailsDiv);
   cardDetailsDiv.appendChild(cardDate);
   cardDetailsDiv.appendChild(cardTemp);
+  cardDetailsDiv.appendChild(cardName);
   cardDetailsDiv.appendChild(cardStatus);
+  
 }
 
 function getDateArray() {
